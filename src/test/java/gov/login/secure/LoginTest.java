@@ -19,6 +19,7 @@ public class LoginTest {
         buttonSignInWebElement.click();
     }
 
+    @Test
     public void test2() {
         WebDriver webDriver = new ChromeDriver();
         webDriver.get("https://secure.login.gov/");
