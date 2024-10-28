@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.concurrent.TimeUnit;
+
 public class LoginPage {
 
     private final WebDriver webDriver;
@@ -28,6 +30,7 @@ public class LoginPage {
     }
 
     public String getErrorMessageNoPhoneNumberNoPassword() {
+        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement errorMessageNoPhoneNumberNoPasswordWebElement = webDriver.findElement(By.xpath(LoginXpath.ERROR_MESSAGE_NO_PHONE_NUMBER_NO_PASSWORD_XPATH));
         return errorMessageNoPhoneNumberNoPasswordWebElement.getText();
     }
@@ -40,5 +43,10 @@ public class LoginPage {
     public String getErrorMessageNoPassword() {
         WebElement errorMessageNoPasswordWebElement = webDriver.findElement(By.xpath(LoginXpath.ERROR_MESSAGE_NO_PASSWORD_XPATH));
         return errorMessageNoPasswordWebElement.getText();
+    }
+
+    public String getErrorMessageInvalidPhoneNumberOrPassword() {
+        WebElement errorMessageInvalidPhoneNumberOrPasswordWebElement = webDriver.findElement(By.xpath(LoginXpath.ERROR_MESSAGE_INVALID_PHONE_NUMBER_OR_PASSWORD_XPATH));
+        return errorMessageInvalidPhoneNumberOrPasswordWebElement.getText();
     }
 }
