@@ -3,7 +3,6 @@ package by.emall;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class LoginPage {
 
@@ -26,5 +25,20 @@ public class LoginPage {
     public void sendKeysInputPassword(String password) {
         WebElement inputPasswordWebElement = webDriver.findElement(By.xpath(LoginXpath.INPUT_PASSWORD_XPATH));
         inputPasswordWebElement.sendKeys(password);
+    }
+
+    public String getErrorMessageNoPhoneNumberNoPassword() {
+        WebElement errorMessageNoPhoneNumberNoPasswordWebElement = webDriver.findElement(By.xpath(LoginXpath.ERROR_MESSAGE_NO_PHONE_NUMBER_NO_PASSWORD_XPATH));
+        return errorMessageNoPhoneNumberNoPasswordWebElement.getText();
+    }
+
+    public String getErrorMessageNoPhoneNumber() {
+        WebElement errorMessageNoPhoneNumberWebElement = webDriver.findElement(By.xpath(LoginXpath.ERROR_MESSAGE_NO_PHONE_NUMBER_XPATH));
+        return errorMessageNoPhoneNumberWebElement.getText();
+    }
+
+    public String getErrorMessageNoPassword() {
+        WebElement errorMessageNoPasswordWebElement = webDriver.findElement(By.xpath(LoginXpath.ERROR_MESSAGE_NO_PASSWORD_XPATH));
+        return errorMessageNoPasswordWebElement.getText();
     }
 }
