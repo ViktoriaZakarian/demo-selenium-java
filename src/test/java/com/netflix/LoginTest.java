@@ -35,8 +35,22 @@ public class LoginTest {
         loginPage.sendKeysInputEmail("zakarianviktoria@gmail.com");
         loginPage.clickButtonEntrance();
 
-        String actualEmail = loginPage.getValidationMessagePassword();
+        String actualPassword = loginPage.getValidationMessagePassword();
         String exceptedPassword = LoginMessage.INVALID_PASSWORD;
-        Assertions.assertEquals(exceptedPassword, actualEmail);
+        Assertions.assertEquals(exceptedPassword, actualPassword);
+    }
+
+    @Test
+    public void test3(){
+        WebDriver webDriver = new ChromeDriver();
+        webDriver.get("https://www.netflix.com/login");
+
+        LoginPage loginPage = new LoginPage(webDriver);
+        loginPage.sendKeysInputPassword("12345");
+        loginPage.clickButtonEntrance();
+
+        String actualEmail = loginPage.getValidationMessageEmail();
+        String exceptedEmail = LoginMessage.INVALID_EMAIL;
+        Assertions.assertEquals(exceptedEmail, actualEmail);
     }
 }
