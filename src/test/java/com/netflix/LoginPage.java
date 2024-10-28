@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.concurrent.TimeUnit;
+
 public class LoginPage {
 
     private final WebDriver webDriver;
@@ -35,5 +37,11 @@ public class LoginPage {
     public String getValidationMessagePassword() {
         WebElement validationMessagePasswordWebElement = webDriver.findElement(By.xpath(LoginXpath.VALIDATION_MESSAGE_PASSWORD));
         return validationMessagePasswordWebElement.getText();
+    }
+
+    public String getErrorMessage() {
+        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        WebElement errorMessageWebElement = webDriver.findElement(By.xpath(LoginXpath.ERROR_MESSAGE));
+        return errorMessageWebElement.getText();
     }
 }
