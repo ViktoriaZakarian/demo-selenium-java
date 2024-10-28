@@ -27,7 +27,7 @@ public class LoginTest {
     }
 
     @Test
-    public void test2(){
+    public void test2() {
         WebDriver webDriver = new ChromeDriver();
         webDriver.get("https://www.netflix.com/login");
 
@@ -41,7 +41,7 @@ public class LoginTest {
     }
 
     @Test
-    public void test3(){
+    public void test3() {
         WebDriver webDriver = new ChromeDriver();
         webDriver.get("https://www.netflix.com/login");
 
@@ -52,5 +52,20 @@ public class LoginTest {
         String actualEmail = loginPage.getValidationMessageEmail();
         String exceptedEmail = LoginMessage.INVALID_EMAIL;
         Assertions.assertEquals(exceptedEmail, actualEmail);
+    }
+
+    @Test
+    public void test4() {
+        WebDriver webDriver = new ChromeDriver();
+        webDriver.get("https://www.netflix.com/login");
+
+        LoginPage loginPage = new LoginPage(webDriver);
+        loginPage.sendKeysInputEmail("zakarianviktoria@gmail.com");
+        loginPage.sendKeysInputPassword("12345");
+        loginPage.clickButtonEntrance();
+
+        String actualMessage = loginPage.getErrorMessage();
+        String exceptedMessage = LoginMessage.ERROR_MESSAGE;
+        Assertions.assertEquals(exceptedMessage, actualMessage);
     }
 }
