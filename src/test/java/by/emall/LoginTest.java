@@ -14,6 +14,7 @@ public class LoginTest {
 
         LoginPage loginPage = new LoginPage(webdriver);
         loginPage.clickButtonEnter();
+        loginPage.clickButtonAcceptAllCookies();
 
         Assertions.assertEquals(LoginMessage.ERROR_MESSAGE_NO_PHONE_NUMBER_NO_PASSWORD, loginPage.getErrorMessageNoPhoneNumberNoPassword());
     }
@@ -25,6 +26,7 @@ public class LoginTest {
 
         LoginPage loginPage = new LoginPage(webdriver);
         loginPage.sendKeysInputPhoneNumber("255756476");
+        loginPage.clickButtonAcceptAllCookies();
         loginPage.clickButtonEnter();
 
         Assertions.assertEquals(LoginMessage.ERROR_MESSAGE_NO_PASSWORD, loginPage.getErrorMessageNoPassword());
@@ -37,6 +39,7 @@ public class LoginTest {
 
         LoginPage loginPage = new LoginPage(webdriver);
         loginPage.sendKeysInputPassword("dcvcv");
+        loginPage.clickButtonAcceptAllCookies();
         loginPage.clickButtonEnter();
 
         Assertions.assertEquals(LoginMessage.ERROR_MESSAGE_NO_PHONE_NUMBER, loginPage.getErrorMessageNoPhoneNumber());
@@ -50,6 +53,7 @@ public class LoginTest {
         LoginPage loginPage = new LoginPage(webdriver);
         loginPage.sendKeysInputPhoneNumber("255756476");
         loginPage.sendKeysInputPassword("dcvcv");
+        loginPage.clickButtonAcceptAllCookies();
         loginPage.clickButtonEnter();
 
         Assertions.assertEquals(LoginMessage.ERROR_MESSAGE_INVALID_PHONE_NUMBER_OR_PASSWORD, loginPage.getErrorMessageInvalidPhoneNumberOrPassword());
