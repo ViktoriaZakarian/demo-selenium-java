@@ -29,4 +29,29 @@ public class LoginTest {
 
         Assertions.assertEquals(LoginMessage.ERROR_MESSAGE_NO_PASSWORD, loginPage.getErrorMessageNoPassword());
     }
+
+    @Test
+    public void test3() {
+        WebDriver webdriver = new ChromeDriver();
+        webdriver.get("https://emall.by/login/password");
+
+        LoginPage loginPage = new LoginPage(webdriver);
+        loginPage.sendKeysInputPassword("dcvcv");
+        loginPage.clickButtonEnter();
+
+        Assertions.assertEquals(LoginMessage.ERROR_MESSAGE_NO_PHONE_NUMBER, loginPage.getErrorMessageNoPhoneNumber());
+    }
+
+    @Test
+    public void test4() {
+        WebDriver webdriver = new ChromeDriver();
+        webdriver.get("https://emall.by/login/password");
+
+        LoginPage loginPage = new LoginPage(webdriver);
+        loginPage.sendKeysInputPhoneNumber("255756476");
+        loginPage.sendKeysInputPassword("dcvcv");
+        loginPage.clickButtonEnter();
+
+        Assertions.assertEquals(LoginMessage.ERROR_MESSAGE_INVALID_PHONE_NUMBER_OR_PASSWORD, loginPage.getErrorMessageInvalidPhoneNumberOrPassword());
+    }
 }
