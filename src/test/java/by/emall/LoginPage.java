@@ -55,7 +55,7 @@ public class LoginPage {
 
     public void clickButtonAcceptAllCookies() {
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-       WebElement buttonAcceptAllCookiesWebElement = webDriver.findElement(By.xpath(LoginXpath.BUTTON_ACCEPT_ALL_COOKIES_XPATH));
-       buttonAcceptAllCookiesWebElement.click();
+        WebElement buttonAcceptAllCookiesWebElement = webDriver.findElement(By.xpath(LoginXpath.BUTTON_ACCEPT_ALL_COOKIES_XPATH));
+        buttonAcceptAllCookiesWebElement.click();
     }
 }
